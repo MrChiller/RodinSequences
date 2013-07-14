@@ -5,13 +5,13 @@
 
 //This function makes the the formula sequence sequence from any number and counter = -1 in the HTML code.
 			
-function functionEval(calcString, counter)
+function functionEval(inputNum, counter)
 {
 	var n = counter.toString();
 	parseInt(n);
 	var redo, seqValue;
-	var calcString = document.getElementById('inputNum').value;	
-	return seqValue = eval(calcString); 	         
+	var inputNum = document.getElementById('inputNum').value;	
+	return seqValue = eval(inputNum); 	         
 }
 
 
@@ -28,7 +28,7 @@ function SpanDoubling(sequence1)
 function Rodin()
 {
 	
-	var DoubleNum = functionEval(calcString, counter);
+	var DoubleNum = functionEval(inputNum, counter);
 	var AdditionString = AddFunction() + ', ' + AddFunction2() + ', ' + AddFunction3()
 		if(DoubleNum>10){	
 		return AdditionString
