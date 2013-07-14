@@ -3,21 +3,24 @@
 // of even those large numbers is calculated it is less than 2 digits. Also because
 //of this limit, only three steps of adding calculations would ever be needed.  
 
-//This function makes the 2^n sequence from counter = -1 in the HTML code.
-function doubling(inputNum, counter)
+//This function makes the the formula sequence sequence from any number and counter = -1 in the HTML code.
+			
+function functionEval(calcString, counter)
 {
-	var doubling, inputNum;
-	var inputNum = document.getElementById('inputNum').value;
-	doubling = Math.pow(inputNum, counter);    
-	return  doubling;
+	var n = counter.toString();
+	parseInt(n);
+	var redo, seqValue;
+	var calcString = document.getElementById('inputNum').value;	
+	return seqValue = eval(calcString); 	         
 }
+
 
 //This function puts the 2^n sequence in the span area.
 function SpanDoubling(sequence1)
 {
 	document.getElementById('doublesequence').innerHTML=
 	document.getElementById('doublesequence').innerHTML +
-	doubling(inputNum, counter) + ', ';
+	functionEval(inputNum, counter) + ', ';
 }
 
 //This function gets called to display in the second text box, the steps made to 
@@ -25,7 +28,7 @@ function SpanDoubling(sequence1)
 function Rodin()
 {
 	
-	var DoubleNum = doubling(inputNum, counter);
+	var DoubleNum = functionEval(calcString, counter);
 	var AdditionString = AddFunction() + ', ' + AddFunction2() + ', ' + AddFunction3()
 		if(DoubleNum>10){	
 		return AdditionString
@@ -56,7 +59,7 @@ function RodinAdd()
 }
 
 
-//This function and the ones like it after, takes the 2^n number,  
+//This function and the ones like it after, takes the formula number,  
 //splits it and puts '+' between them for display and for the AddFunction()
 function CharString()
 {

@@ -8,7 +8,8 @@
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>	
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+			
 	</head>
 	<style type="text/css">							    
 		.ui-mobile-viewport{
@@ -28,28 +29,29 @@
 		<div data-role="page" id="page1" >
 		
 		<!-- Header -->
-		<div data-role="header" style="color:#ABF5C3" data-theme="b"  >
+		<div data-role="header" style="color:#ABF000" data-theme="b"  >
 			<div style="font-size: 36px" style="text-align:center">Rodin's </div>
-			<div style="font-size: 36px" style="text-align:center">Sequences</div>
+			<div style="font-size: 36px" style="text-align:center">Algorithmic Sequences</div>
 			<script type="text/javascript" src="Rodin sequence2.js"></script>
 			<script type="text/javascript">
 				var counter = -1;
 			</script>
+			</head>
 		</div>
 		<!-- /header -->
 		<!-- Content    -->
 		<div data-role="content" >
 			
 			<p  style="color: #ABF000; font-size: 16px;">Programmed by Casey Rodgers</p>
-			<p style="color: #ABF5C3; font-size: 12px;">
-			&nbsp;&nbsp;&nbsp;&nbsp;The Rodin sequences are an algorithm of two simple steps
-			1. Calculate the sequence of an integer N^n for example 2^n (where n= integers 
-			starting with zero):<br>
-			The sequence for 2^n is: 1,2,4,8,16,32,64,128.....<br>
-			2. Add the digits of the number if it is greater than 9 until the answer is lesser 
-			than 9. For example 2^6 = 64 -> 6+4=10>9 -> 1+0 = 1. So 1 is the Rodin sequence number.
-			The Rodin sequnce for 2^n is: 1,2,4,8,7,5,1,2,4,8,7,5,.....<br>
-			This is what you should get in the sequence output area called "Rodin N^n sequence".<br>
+			<p style="color: #EBEDAB; font-size: 14px;">
+			&nbsp;&nbsp;&nbsp;&nbsp;The Rodin algorithmic sequences are an algorithm of two simple steps
+			1. Calculate the sequence of any formula with any integer with a sequnce of integers n
+			starting with zero i.e. n = 0,1,2,3,4,5,6,...:<br>
+			Example The sequence for integer 2^n is: 1,2,4,8,16,32,64,128.....<br>
+			2. Add the digits of the number calculated if it is greater than 9 until the answer is lesser 
+			than 9. For example 2^6 = 64 -> 6+4=10>9 -> 1+0 = 1. So 1 is the Rodin algorithmic sequence number.
+			The Rodin algorithmic sequnce for 2^n is: 1,2,4,8,7,5,1,2,4,8,7,5,.....<br>
+			This is what you should get in the sequence output area called "Rodin algorithmic sequence".<br>
 			When the number input is 2 which will be 2^n calculated.<br>
 			A visual to help see how this works is below:			
 			
@@ -57,32 +59,37 @@
 			<img src="Rodin_sequence.png" alt="Rodin doubling sequence" width="100%">
 			
 			<br><br>
-			&nbsp;&nbsp;&nbsp;&nbsp;This website will help people understand how Marko Rodin's sequences 
-			work because it is an interactive javascript program. When you hit 
+			&nbsp;&nbsp;&nbsp;&nbsp;This website will help people understand how Marko Rodin's algorithmic 
+			sequences work because it is an interactive javascript program. When you hit 
 			the Start sequence button you will see numbers displayed in all the text boxes and 
-			in the area bellow the line. In the first text box enter the N integer you wish to calculate
-			for the N^n rodin sequence to be displayed.The second textbox called "N^n sequence" displays 
+			in the area bellow the line. In the first text box enter the formula you wish to calculate.
+			The second textbox called "Rodin algorithmic sequence" displays 
 			each number in the sequence N^n.The third textbox called "Adding steps" 
 			displays the addition of the numbers until there is only one step. each step is seperated 
-			by commas. The fourth textbox called "Rodin N^n sequence" displays the Rodin sequence number
-			that is calculated in the third textbox.<br><br>
-			The doubling sequence and Rodin sequence are displayed bellow the text boxes. </p>
-				
+			by commas. The fourth textbox called "Rodin algorithmic sequence" displays the Rodin algorithmic 
+			sequence number that is calculated in the third textbox.<br><br>
+			The doubling sequence and Rodin sequence are displayed bellow the text boxes. 
+			&nbsp;&nbsp;&nbsp;&nbsp;To enter a formula use any expression for math that will work like "*" for
+			multiplication "+" for addition. Enter the lowercase letter n to represent a sequence of numbers
+			n = 0,1,2,3,4,5,6,..., which is what you get if you only put n there. The expression "-" for subraction, 
+			and "/" for divide will calculate but the program will only work with whole numbers and the negative sign 
+			will give inaacurate results. So the formula must give a positive whole number answer to work. 
+			The expression Math.pow(2,n) is the same as 2 to the nth power (i.e. 2^n) 2^n will not work so use 
+			this javascript function. </p>
 			<hr><div style="text-align:center">
-			<p style="color: #ABF5C3; font-size: 16px;">Input N integer for the N^n sequence you 
-				wish to examine:<br></p>
-			<input type="text" id="inputNum" size=30 value="2"data-theme="e">
+			<p style="color: #EBEDAB; font-size: 16px;">Input a formula you wish to examine:<br></p>
+			<input type="text" id="inputNum" size=30 value="Math.pow(2, n)"data-theme="e">
 			
-			<p style="color: #ABF5C3; font-size: 14px;">N^n sequence:</p>
+			<p style="color: #EBEDAB; font-size: 14px;">Formula sequence:</p>
 				<input type ="text" id="Doubling" size =30 data-theme="a">
-			<p style="color: #ABF5C3; font-size: 14px;">Adding steps:</p>
+			<p style="color: #EBEDAB; font-size: 14px;">Adding steps:</p>
 				<input type ="text" id="Evaluation" size =30 data-theme="a">
-			<p style="color: #ABF5C3; font-size: 14px;">Rodin sequence:	</p>
+			<p style="color: #EBEDAB; font-size: 14px;">Rodin algorithmic sequence:	</p>
 				<input type ="text" id="RodinTB" size =30 data-theme="a">
 			<input type="button" value="Start sequences"
 			onclick="var TB1, TB2, TB3, sequence1;
 			counter++;
-			TB1 = doubling(inputNum, counter);
+			TB1 = functionEval(inputNum, counter);
 			document.getElementById('Doubling').value = TB1;		
 			SpanDoubling(sequence1);
 			TB2 = Rodin();
@@ -101,20 +108,22 @@
 			counter = -1
 			">
 			
-			<p style="color: #ABF5C3; font-size: 14px;">N^n sequence:</p>
+			<p style="color: #EBEDAB; font-size: 14px;">Rodin algorithmic sequence:</p>
 			<span id="doublesequence" style="color: #ABF5C3; font-size: 14px"></span>
-			<p style="color: #ABF5C3; font-size: 14px;">Rodin sequence:</p>
+			<p style="color: #EBEDAB; font-size: 14px;">Rodin sequence:</p>
 			<span id="rodinsequence"style="color: #ABF5C3; font-size: 14px"></span>
-			<br><br><br><br>
+			<br><br>
 			</div>
-			<p style="color: #ABF5C3; font-size: 12px;">
+			<p style="color: #EBEDAB; font-size: 14px;">
 			
-			&nbsp;&nbsp;&nbsp;&nbsp;It is interesting to note that javascript 2^n math calculations only 
+			&nbsp;&nbsp;&nbsp;&nbsp;It is interesting to note that the formula 2^n math calculations in javascript only 
 			work up to 2^53 which is exactly 9007199254740992.<br> This means that the Rodin sequence 
 			is no longer accurate after repeating 9 times. <br>
-			
-			&nbsp;&nbsp;&nbsp;&nbsp;The other interesting fact to note is that if you do each N^n 
-			sequence you will find that theyrepeat. Here are the Rodin sequences which will repeat:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;It seems like there are many combinations of formulas involving numbers and n which will
+			give repeating sequnce patterns. I wonder what kind of formulas give reapeating patterns and which ones don't. Give me
+			feedback on what you find and what you think of the app. I would like to know!			
+			&nbsp;&nbsp;&nbsp;&nbsp;The other interesting fact to note is that if you put any N^n formula, where N is 
+			an integer you will find that they repeat. Here are the Rodin algorithmic sequences which will repeat:<br>
 			1^n = 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,...<br>
 			2^n = 1, 2, 4, 8, 7, 5, 1, 2, 4, 8, 7, 5,...<br>
 			3^n = 1, 3, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9,...<br>
@@ -130,9 +139,8 @@
 		    so the sequence is the same as 7^n.
 		    <img src="rodin_symbol_seq.png" alt="Rodin Symbol" width ="100%">
 		    &nbsp;&nbsp;&nbsp;&nbsp; The symbol above shows the relationships of the rodin sequences the sequences 
-		    2^ and 5^n are the opposite of eachother and same with the sequence 4^n and 7^n. the sequences 3^n, 6^n 
-		    and 9^n all go to a repeating 9 after the 3rd number in the sequence. 8^n is its own thing what can I say :). </p>
-		    
+		    2^n and 5^n are the opposite of eachother and same with the sequence 4^n and 7^n. the sequences 3^n, 6^n 
+		    and 9^n all go to a repeating 9 after the 3rd number in the sequence. 8^n is its own thing what can I say :). </p>		    
 				
 			</div>
 			<!-- /content -->
