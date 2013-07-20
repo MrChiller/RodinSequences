@@ -72,10 +72,12 @@
 			&nbsp;&nbsp;&nbsp;&nbsp;To enter a formula use any expression for math that will work like "*" for
 			multiplication "+" for addition. Enter the lowercase letter n to represent a sequence of numbers
 			n = 0,1,2,3,4,5,6,..., which is what you get if you only put n there. The expression "-" for subraction, 
-			and "/" for divide will calculate but the program will only work with whole numbers and the negative sign 
-			will give inaacurate results. So the formula must give a positive whole number answer to work. 
+			and "/" for divide will calculate but the program will only any number but the negative sign 
+			will give inaacurate results. So the formula must give a positive  number answer to work. 
 			The expression Math.pow(2,n) is the same as 2 to the nth power (i.e. 2^n) 2^n will not work so use 
-			this javascript function. </p>
+			this javascript function. I changed the alogrithm so that if there is a fraction or a number with a decimal 
+			point "." the number will be changed into a fraction and the Rodin algorithm will be calculated for the 
+			numerator and demoninator. So for example 21/64 would be 2+1/6+4 = 3/10 then 3/1+0 = 3/1.</p>
 			<hr><div style="text-align:center">
 			<p style="color: #EBEDAB; font-size: 16px;">Input a formula you wish to examine:<br></p>
 			<input type="text" id="inputNum" size=30 value="Math.pow(2, n)"data-theme="e">
@@ -83,21 +85,56 @@
 			<p style="color: #EBEDAB; font-size: 14px;">Formula sequence:</p>
 				<input type ="text" id="Doubling" size =30 data-theme="a">
 			<p style="color: #EBEDAB; font-size: 14px;">Adding steps:</p>
-				<input type ="text" id="Evaluation" size =30 data-theme="a">
+				<textarea cols="30" rows="2" id="Evaluation"  data-theme="a"></textarea>
 			<p style="color: #EBEDAB; font-size: 14px;">Rodin algorithmic sequence:	</p>
 				<input type ="text" id="RodinTB" size =30 data-theme="a">
 			<input type="button" value="Start sequences"
-			onclick="var TB1, TB2, TB3, sequence1;
+			onclick="var TB1A, TB1B, TB2A, TB2B, TB3A, TB3B, sequence1;
 			counter++;
-			TB1 = functionEval(inputNum, counter);
-			document.getElementById('Doubling').value = TB1;		
-			SpanDoubling(sequence1);
-			TB2 = Rodin();
-			document.getElementById('Evaluation').value = TB2;
-			TB3 = RodinAdd();
-			document.getElementById('RodinTB').value = TB3;
-			SpanRodin();
-			">
+			TB1A = functionEval(inputNum, counter);
+			var TB1str = TB1A.toString();
+			if(TB1str.indexOf('.') == -1)
+			{
+				document.getElementById('Doubling').value = TB1A;		
+				SpanDoubling();
+				TB2A = Rodin();
+				document.getElementById('Evaluation').value = TB2A;
+				TB3A = RodinAdd();
+				document.getElementById('RodinTB').value = TB3A;
+				SpanRodin();
+			}
+			else
+			{
+				var w = float2rat(TB1A);
+				var y = w[0];
+				var z = w[1];
+				var funcString = y+'/'+z;
+				document.getElementById('Doubling').value = funcString;	
+				SpanRatio(funcString);	
+				var ratioN = ratioCharStringN(y);
+				var ratioD = ratioCharStringD(z);
+				var TB2B = ratioAddFunction(ratioN, ratioD);
+				N1 = TB2B[4].toString();
+				D1 = TB2B[6].toString();
+				var ratioN2 = ratioCharStringN2(N1);
+				var ratioD2 = ratioCharStringD2(D1);
+				var TB2C = ratioAddFunction2(ratioN2,ratioD2);
+				N2 = TB2C[4].toString();
+				D2 = TB2C[6].toString();
+				var ratioN3 = ratioCharStringN3(N2);
+				var ratioD3 = ratioCharStringD3(D2);
+				var TB2D = ratioAddFunction3(ratioN3,ratioD3);
+				N3 = TB2D[4].toString();
+				D3 = TB2D[6].toString();				
+				var TB2E = ratioRodinAdd(N1,D1,N2,D2,N3,D3);
+				var TB2A = ratioRodin(y,z,ratioN,ratioD,ratioN2,ratioD2,ratioN3,ratioD3);
+				document.getElementById('Evaluation').value = TB2A;
+				document.getElementById('RodinTB').value = TB2E;
+				document.getElementById('rodinsequence').innerHTML=
+				document.getElementById('rodinsequence').innerHTML +
+				ratioRodinAdd(N1,D1,N2,D2,N3,D3) + ', ';
+			}">
+			
 			<input type="button" data-theme="a" value="Reset sequences"
 			onclick="
 			document.getElementById('Doubling').value = ''
